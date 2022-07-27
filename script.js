@@ -22,6 +22,16 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 }
 
+//this needs work....goal is to add the new book to our table
+function populateRow(myLibrary) {
+    let table = document.querySelector('table');
+    let newRow = table.insertRow();
+    for (i=0; i<4; i++) {
+        let newCell = newRow.insertCell(i);
+        newCell.textContent = myLibrary[i];
+    }
+}
+
 
 //manually inserted some books to figure out display
 myLibrary.push(new Book('The Hobbit', 'J. R. R. Tolkien', 295, 'not read yet'));
