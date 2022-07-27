@@ -64,3 +64,9 @@ for (i = 0; i < myLibrary.length; i++) {
     populateRow(myLibrary[i]);
 }
 
+
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+    addBookToLibrary();
+})
+
