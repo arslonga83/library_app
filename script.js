@@ -23,7 +23,7 @@ function addBookToLibrary() {
     populateRow(newBook);
 }
 
-//this needs work....goal is to add the new book to our table...newBook[0] did get me the title...
+//this was my first try....repetition in code can be improved
 function populateRow(newBook) {
     let table = document.querySelector('table');
     let newRow = table.insertRow();
@@ -40,7 +40,21 @@ function populateRow(newBook) {
             newText = document.createTextNode(newBook.read);
             newCell.appendChild(newText);
         }
-    
+
+// this function make the table from myLibrary
+function makeTable(myLibrary) {   
+    let table = document.querySelector('table'); 
+for (i = 0; i < myLibrary.length; i++) {
+        let newRow = table.insertRow();
+        for (j = 0; j < 4; j++) {
+            let newCell = newRow.insertCell();
+            let newText = document.createTextNode(Object.values(myLibrary[i])[j]);
+            newCell.appendChild(newText);
+        }
+    }
+}
+
+
 
     //let newCell = newRow.insertCell(newRow.cells.length);
     //    let newText = document.createTextNode(myLibrary[i].title);
@@ -60,9 +74,9 @@ myLibrary.push(new Book('Elephant and Piggie', 'Mo Willems', 45, 'read'));
 console.table(myLibrary);
 
 
-for (i = 0; i < myLibrary.length; i++) {
-    populateRow(myLibrary[i]);
-}
+//for (i = 0; i < myLibrary.length; i++) {
+//    populateRow(myLibrary[i]);
+//}
 
 
 const button = document.querySelector('button');
