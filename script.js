@@ -32,6 +32,9 @@ function populateRow() {
         let newText = document.createTextNode(Object.values(myLibrary[i])[j]);
         newCell.appendChild(newText);
     }
+    newCell = newRow.insertCell();
+    let button = document.createElement('button');
+    newCell.appendChild(button);
 }
 
 
@@ -46,16 +49,11 @@ for (i = 0; i < myLibrary.length; i++) {
             let newText = document.createTextNode(Object.values(myLibrary[i])[j]);
             newCell.appendChild(newText);
         }
+        newCell = newRow.insertCell();
+        let button = document.createElement('button');
+        newCell.appendChild(button);
     }
 }
-
-
-
-
-
-        
-    
-
 
 //manually inserted some books to figure out display
 myLibrary.push(new Book('The Hobbit', 'J. R. R. Tolkien', 295, 'not read yet'));
@@ -63,12 +61,6 @@ myLibrary.push(new Book('Narwhal and Jelly', 'Ben Clanton', 40, 'read'));
 myLibrary.push(new Book('Elephant and Piggie', 'Mo Willems', 45, 'read'));
 
 makeTable(myLibrary);
-
-
-//for (i = 0; i < myLibrary.length; i++) {
-//    populateRow(myLibrary[i]);
-//}
-
 
 const button = document.querySelector('button');
 button.addEventListener('click', () => {

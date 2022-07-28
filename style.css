@@ -32,7 +32,7 @@ th {
     background-color: rgb(235,235,235);
   }
 
-button {
+button.new-book {
     padding: 24px;
     margin: 24px;
     background-color: black;
