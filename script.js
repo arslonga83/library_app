@@ -34,6 +34,7 @@ function populateRow() {
     }
     newCell = newRow.insertCell();
     let button = document.createElement('button');
+    button.dataset.index = i;
     button.classList.add('deleteButton');
     newCell.appendChild(button);
     createDelete();
@@ -51,6 +52,7 @@ for (i = 0; i < myLibrary.length; i++) {
         }
         newCell = newRow.insertCell();
         let button = document.createElement('button');
+        button.dataset.index = i;
         button.classList.add('deleteButton');
         newCell.appendChild(button);
         createDelete();
