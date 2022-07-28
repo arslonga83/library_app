@@ -20,26 +20,21 @@ function addBookToLibrary() {
     newBook.pages = prompt("Pages: ");
     newBook.read = prompt("Read? ");
     myLibrary.push(newBook);
-    populateRow(newBook);
+    populateRow();
 }
 
-//this was my first try....repetition in code can be improved
-function populateRow(newBook) {
+//specifically adds the newest book to table
+function populateRow() {
     let table = document.querySelector('table');
     let newRow = table.insertRow();
-            let newCell = newRow.insertCell();
-            let newText = document.createTextNode(newBook.title);
-            newCell.appendChild(newText)
-            newCell = newRow.insertCell();
-            newText = document.createTextNode(newBook.author);
-            newCell.appendChild(newText);
-            newCell = newRow.insertCell();
-            newText = document.createTextNode(newBook.pages);
-            newCell.appendChild(newText);
-            newCell = newRow.insertCell();
-            newText = document.createTextNode(newBook.read);
-            newCell.appendChild(newText);
-        }
+    for (i = myLibrary.length - 1, j = 0; j < 4; j++) {
+        let newCell = newRow.insertCell();
+        let newText = document.createTextNode(Object.values(myLibrary[i])[j]);
+        newCell.appendChild(newText);
+    }
+}
+
+
 
 // this function make the table from myLibrary
 function makeTable(myLibrary) {   
@@ -56,10 +51,6 @@ for (i = 0; i < myLibrary.length; i++) {
 
 
 
-    //let newCell = newRow.insertCell(newRow.cells.length);
-    //    let newText = document.createTextNode(myLibrary[i].title);
-    //    newCell.appendChild(newText);
-
 
 
         
@@ -71,7 +62,7 @@ myLibrary.push(new Book('The Hobbit', 'J. R. R. Tolkien', 295, 'not read yet'));
 myLibrary.push(new Book('Narwhal and Jelly', 'Ben Clanton', 40, 'read'));
 myLibrary.push(new Book('Elephant and Piggie', 'Mo Willems', 45, 'read'));
 
-console.table(myLibrary);
+makeTable(myLibrary);
 
 
 //for (i = 0; i < myLibrary.length; i++) {
