@@ -34,10 +34,10 @@ function populateRow() {
     }
     newCell = newRow.insertCell();
     let button = document.createElement('button');
+    button.classList.add('deleteButton');
     newCell.appendChild(button);
+    createDelete();
 }
-
-
 
 // this function make the table from myLibrary
 function makeTable(myLibrary) {   
@@ -51,7 +51,9 @@ for (i = 0; i < myLibrary.length; i++) {
         }
         newCell = newRow.insertCell();
         let button = document.createElement('button');
+        button.classList.add('deleteButton');
         newCell.appendChild(button);
+        createDelete();
     }
 }
 
@@ -62,8 +64,15 @@ myLibrary.push(new Book('Elephant and Piggie', 'Mo Willems', 45, 'read'));
 
 makeTable(myLibrary);
 
-const button = document.querySelector('button');
+const button = document.querySelector('.new-book');
 button.addEventListener('click', () => {
     addBookToLibrary();
 })
 
+function createDelete() {
+    document.querySelectorAll('.deleteButton').forEach(item => {
+        item.addEventListener('click', () => {
+            console.log('I\'m a delete button');
+        })
+    })
+}
