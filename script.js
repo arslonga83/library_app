@@ -55,8 +55,8 @@ for (i = 0; i < myLibrary.length; i++) {
         button.dataset.index = i;
         button.classList.add('deleteButton');
         newCell.appendChild(button);
-        createDelete();
     }
+    createDelete();
 }
 
 //manually inserted some books to figure out display
