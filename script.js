@@ -34,7 +34,8 @@ function populateRow() {
     }
     newCell = newRow.insertCell();
     let button = document.createElement('button');
-    button.dataset.index = i;
+    button.dataset.index = myLibrary.length - 1;
+    newRow.setAttribute('id', myLibrary.length - 1);
     button.classList.add('deleteButton');
     newCell.appendChild(button);
     createDelete();
@@ -45,6 +46,7 @@ function makeTable(myLibrary) {
     let table = document.querySelector('tbody'); 
 for (i = 0; i < myLibrary.length; i++) {
         let newRow = table.insertRow();
+        newRow.setAttribute('id', i);
         for (j = 0; j < 4; j++) {
             let newCell = newRow.insertCell();
             let newText = document.createTextNode(Object.values(myLibrary[i])[j]);
@@ -71,16 +73,24 @@ button.addEventListener('click', () => {
     addBookToLibrary();
 })
 
-function createDelete() {
-    document.querySelectorAll('.deleteButton').forEach(item => {
-        item.addEventListener('click', () => {
-            index = item.dataset.index;
-            for (i = 0; i < myLibrary.length; i++) {
-                if (i == index) {
-                    myLibrary.splice(i, 1);
-                    document.getElementsByTagName('tr')[i + 1].remove();
-                }
-            }
-        })
-    })
-}
+
+//NEED to rethink this part
+//function createDelete() {
+//    document.querySelectorAll('.deleteButton').forEach(item => {
+//        item.addEventListener('click', () => {
+//            index = item.dataset.index;
+//            for (i = 0; i <= myLibrary.length; i++) {
+//                if (i == index) { 
+//                    myLibrary.splice(i, 1); 
+//                    console.table(myLibrary);       
+//                }
+//                }
+//            }
+//        
+//      )  } )}
+
+     
+
+
+ 
+//document.querySelector('tr').dataset.index.i.remove(); // this only works in reverse order....the buttons are connected to their initial position, rather than the dataset.index
