@@ -74,7 +74,12 @@ button.addEventListener('click', () => {
 function createDelete() {
     document.querySelectorAll('.deleteButton').forEach(item => {
         item.addEventListener('click', () => {
-            console.log('I\'m a delete button');
+            index = item.dataset.index;
+            for (i = 0; i < myLibrary.length; i++) {
+                if (i == index) {
+                    myLibrary.splice(i, 1);
+                }
+            }
         })
     })
 }

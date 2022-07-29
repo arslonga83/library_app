@@ -38,5 +38,14 @@ button.new-book {
     background-color: black;
     color: white;
     font-size: 24px;
+}
 
+button.deleteButton {
+    padding: 8px;
+    background-color: black;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: grey;
 }
