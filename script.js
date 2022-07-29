@@ -42,7 +42,7 @@ function populateRow() {
 
 // this function make the table from myLibrary
 function makeTable(myLibrary) {   
-    let table = document.querySelector('table'); 
+    let table = document.querySelector('tbody'); 
 for (i = 0; i < myLibrary.length; i++) {
         let newRow = table.insertRow();
         for (j = 0; j < 4; j++) {
@@ -78,6 +78,8 @@ function createDelete() {
             for (i = 0; i < myLibrary.length; i++) {
                 if (i == index) {
                     myLibrary.splice(i, 1);
+                    console.log(document.getElementsByTagName('tr')[i].rowIndex);
+                    
                 }
             }
         })
