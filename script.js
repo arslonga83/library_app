@@ -78,8 +78,7 @@ function createDelete() {
             for (i = 0; i < myLibrary.length; i++) {
                 if (i == index) {
                     myLibrary.splice(i, 1);
-                    console.log(document.getElementsByTagName('tr')[i].rowIndex);
-                    
+                    document.getElementsByTagName('tr')[i + 1].remove();
                 }
             }
         })
