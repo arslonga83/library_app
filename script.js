@@ -28,11 +28,17 @@ Book.prototype.toggle = function() {
 
 //collect info for a new book and add it to the library
 function addBookToLibrary() {
-    newBook = Object.create(Book);
+    const newBook = new Book();
     newBook.title = prompt("Title: ");
     newBook.author = prompt("Author: ");
     newBook.pages = prompt("Pages: ");
-    newBook.read = prompt("Read? (type 0 for no and 1 for yes)");
+    newBook.read = prompt("Read? (yes or no)");
+    if (newBook.read == 'yes') {
+        newBook.read = true;
+    }
+    else {
+        newBook.read = false;
+    }
     myLibrary.push(newBook);
     document.querySelector('#tableBody').innerHTML = "";
     makeTable(myLibrary);
@@ -108,6 +114,8 @@ function createCheckbox() {
             index = item.dataset.index;
             for (i = 0; i <= index; i++) {
                 if (i == index) {
+                    console.log(i);
+                    console.log(myLibrary[i])
                     myLibrary[i].toggle();
                     console.table(myLibrary);
                     document.querySelector('#tableBody').innerHTML = "";
