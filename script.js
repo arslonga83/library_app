@@ -12,6 +12,20 @@ Book.prototype.info = function() {
     return this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read
 }
 
+//toggle read status function
+Book.prototype.toggle = function() {
+    if (this.read == true) {
+        console.log('if');
+        this.read = false;
+        console.log(this.read);
+    }
+    else {
+        console.log('else');
+        this.read = true;
+        console.log(this.read);
+    }
+}
+
 //collect info for a new book and add it to the library
 function addBookToLibrary() {
     newBook = Object.create(Book);
@@ -39,6 +53,8 @@ function makeTable(myLibrary) {
         newCell = newRow.insertCell();
         let checkbox = document.createElement('input');
         checkbox.setAttribute('type', 'checkbox');
+        checkbox.classList.add('checkbox');
+        checkbox.dataset.index = i;
         if (Object.values(myLibrary[i])[3] == true) {
             checkbox.checked = true;
         }
@@ -48,10 +64,10 @@ function makeTable(myLibrary) {
         let button = document.createElement('button');
         button.dataset.index = i;
         button.classList.add('deleteButton');
-        newCell.appendChild(button);
-        
+        newCell.appendChild(button);  
     }
     createDelete();
+    createCheckbox();
     console.table(myLibrary);
 }
 
@@ -59,14 +75,13 @@ function makeTable(myLibrary) {
 myLibrary.push(new Book('The Hobbit', 'J. R. R. Tolkien', 295, false));
 myLibrary.push(new Book('Narwhal and Jelly', 'Ben Clanton', 40, true));
 myLibrary.push(new Book('Elephant and Piggie', 'Mo Willems', 45, true));
-
 makeTable(myLibrary);
 
+//adds event listener to New Book button
 const button = document.querySelector('.new-book');
 button.addEventListener('click', () => {
     addBookToLibrary();
 })
-
 
 //adds event listener on delete buttons and refreshes table when run
 function createDelete() {
@@ -76,12 +91,35 @@ function createDelete() {
             for (i = 0; i <= index; i++) {
                if (i == index) { 
                    myLibrary.splice(i, 1); 
-                   //document.getElementById(i).remove();
                    console.table(myLibrary);
                    document.querySelector('#tableBody').innerHTML = "";
                    makeTable(myLibrary);
-                   }
+               }
+            }
+         })
+    })
+}
+
+//adds event listener to read status checkboxes
+function createCheckbox() {
+    document.querySelectorAll('.checkbox').forEach(item => {
+        item.addEventListener('change', () => {
+            console.log('test');
+            index = item.dataset.index;
+            for (i = 0; i <= index; i++) {
+                if (i == index) {
+                    myLibrary[i].toggle();
+                    console.table(myLibrary);
+                    document.querySelector('#tableBody').innerHTML = "";
+                    makeTable(myLibrary);
                 }
             }
-        )} 
-    )}
+        })
+    })
+}
+
+
+
+    
+
+
