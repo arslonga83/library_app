@@ -19,32 +19,35 @@ function addBookToLibrary() {
     newBook.author = prompt("Author: ");
     newBook.pages = prompt("Pages: ");
     newBook.read = prompt("Read? ");
+    newBook.data = myLibrary.length - 1;
     myLibrary.push(newBook);
-    populateRow();
+    //populateRow();
+    document.querySelector('#tableBody').innerHTML = "";
+    makeTable(myLibrary);
 }
 
 //specifically adds the newest book to table
-function populateRow() {
-    let table = document.querySelector('table');
-    let newRow = table.insertRow();
-    for (i = myLibrary.length - 1, j = 0; j < 4; j++) {
-        let newCell = newRow.insertCell();
-        let newText = document.createTextNode(Object.values(myLibrary[i])[j]);
-        newCell.appendChild(newText);
-    }
-    newCell = newRow.insertCell();
-    let button = document.createElement('button');
-    button.dataset.index = myLibrary.length - 1;
-    newRow.setAttribute('id', myLibrary.length - 1);
-    button.classList.add('deleteButton');
-    newCell.appendChild(button);
-    createDelete();
-}
+////function populateRow() {
+//    let table = document.querySelector('table');
+  //  let newRow = table.insertRow();
+  //  for (i = myLibrary.length - 1, j = 0; j < 4; j++) {
+  //      let newCell = newRow.insertCell();
+  //      let newText = document.createTextNode(Object.values(myLibrary[i])[j]);
+  //      newCell.appendChild(newText);
+  //  }
+  //  newCell = newRow.insertCell();
+  //  let button = document.createElement('button');
+  //  button.dataset.index = myLibrary.length - 1;
+  //  newRow.setAttribute('id', myLibrary.length - 1);
+  //  button.classList.add('deleteButton');
+  //  newCell.appendChild(button);
+  //  createDelete();
+//}
 
 // this function make the table from myLibrary
 function makeTable(myLibrary) {   
     let table = document.querySelector('tbody'); 
-for (i = 0; i < myLibrary.length; i++) {
+    for (i = 0; i < myLibrary.length; i++) {
         let newRow = table.insertRow();
         newRow.setAttribute('id', i);
         for (j = 0; j < 4; j++) {
@@ -74,23 +77,20 @@ button.addEventListener('click', () => {
 })
 
 
-//NEED to rethink this part
-//function createDelete() {
-//    document.querySelectorAll('.deleteButton').forEach(item => {
-//        item.addEventListener('click', () => {
-//            index = item.dataset.index;
-//            for (i = 0; i <= myLibrary.length; i++) {
-//                if (i == index) { 
-//                    myLibrary.splice(i, 1); 
-//                    console.table(myLibrary);       
-//                }
-//                }
-//            }
-//        
-//      )  } )}
-
-     
-
-
- 
-//document.querySelector('tr').dataset.index.i.remove(); // this only works in reverse order....the buttons are connected to their initial position, rather than the dataset.index
+//adds event listener on delete buttons and refreshes table when run
+function createDelete() {
+    document.querySelectorAll('.deleteButton').forEach(item => {
+        item.addEventListener('click', () => {
+            index = item.dataset.index;
+            for (i = 0; i <= index; i++) {
+               if (i == index) { 
+                   myLibrary.splice(i, 1); 
+                   //document.getElementById(i).remove();
+                   console.table(myLibrary);
+                   document.querySelector('#tableBody').innerHTML = "";
+                   makeTable(myLibrary);
+                   }
+                }
+            }
+        )} 
+    )}
