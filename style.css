@@ -1,6 +1,18 @@
 * {
-    font-family: sans-serif;
+    font-family: myFont, sans-serif;
 }
+
+@font-face {
+    font-family: myFont;
+    src: url(./Uchen-Regular.ttf)
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+  }
 
 body {
     background-image: url(./patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg);
@@ -15,12 +27,14 @@ h1 {
     color: white;
     background-color: black;
     padding: 24px;
+    font-size: 48px;
 }
 
 table {
     border: 1px solid black;
     border-collapse: collapse;
     background-color: white;
+    text-align: left;
 }
 
 th, td {
@@ -40,12 +54,28 @@ button.new-book {
     font-size: 24px;
 }
 
+button.deleteButton:hover {
+    transform: scale(1.2, 1.2)
+}
+
+button.deleteButton:active {
+    background-color: rgb(235,235,235);
+}
+
+button.new-book:hover {
+    transform: scale(1.05, 1.05)
+}
+
+button.new-book:active {
+    background-color: rgb(235,235,235);
+}
+
 button.deleteButton {
     padding: 8px;
     background-color: black;
     color: white;
 }
 
-.deleteButton:hover {
-    background-color: grey;
+.buttonCell {
+   text-align: center;
 }

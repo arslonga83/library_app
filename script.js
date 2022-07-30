@@ -24,8 +24,10 @@ function addBookToLibrary() {
     //populateRow();
     document.querySelector('#tableBody').innerHTML = "";
     makeTable(myLibrary);
+    console.table(myLibrary);
 }
 
+//PRETTY SURE I CAN GET RID OF THIS FUNCTION NOW
 //specifically adds the newest book to table
 ////function populateRow() {
 //    let table = document.querySelector('table');
@@ -56,12 +58,14 @@ function makeTable(myLibrary) {
             newCell.appendChild(newText);
         }
         newCell = newRow.insertCell();
+        newCell.classList.add('buttonCell');
         let button = document.createElement('button');
         button.dataset.index = i;
         button.classList.add('deleteButton');
         newCell.appendChild(button);
     }
     createDelete();
+    console.table(myLibrary);
 }
 
 //manually inserted some books to figure out display
