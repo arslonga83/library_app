@@ -47,7 +47,7 @@ th {
     font-size: 24px;
   }
 
-button.new-book {
+button.new-book, button.form-button {
     padding: 24px;
     margin: 24px;
     background-color: black;
@@ -85,4 +85,20 @@ button.deleteButton {
     text-align: center;
 }
 
+#popupForm {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background-color: rgb(235,235,235);
+    padding: 48px;
+    padding-top: 16px;
+    border: 2px solid black;
+    width: 500px;
+    text-align: center;
+    line-height: 3rem;
+}
 
+.cancel {
+    padding: 8px;
+    margin-top: 24px;
+}

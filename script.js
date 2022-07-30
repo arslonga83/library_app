@@ -117,7 +117,21 @@ myLibrary.push(new Book('Narwhal and Jelly', 'Ben Clanton', 40, true));
 myLibrary.push(new Book('Elephant and Piggie', 'Mo Willems', 45, true));
 makeTable(myLibrary);
 
-
+//close and open form for adding new books
+function openForm() {
+    document.getElementById('popupForm').style.display = 'flex';
+}
+function closeForm() {
+    document.getElementById('popupForm').style.display = 'none';
+}
+formButton = document.querySelector('.form-button');
+formButton.addEventListener('click', () => {
+    openForm();
+})
+cancelButton = document.querySelector('.cancel');
+cancelButton.addEventListener('click', () => {
+    closeForm();
+})
 
     
 

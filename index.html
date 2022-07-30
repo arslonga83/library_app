@@ -9,6 +9,18 @@
 </head>
 <body>
     <h1>My Library Collection</h1>
+    <div id = "popupForm">
+        <h2>New Book</h2>
+        <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+        <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+        <label for="pages">Pages</label>
+            <input type="text">
+        <label for="read">Read?</label>
+            <input type="checkbox">
+        <button class="cancel">Cancel</button>    
+    </div>
     <table id="bookTable">
         <thead>
             <tr>
@@ -25,6 +37,7 @@
         </tbody>
     </table>
     <button class="new-book">New Book</button>
+    <button class="form-button">Book Form</button>
     
 <script src="./script.js"></script>
 </body>
