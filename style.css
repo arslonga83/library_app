@@ -44,6 +44,7 @@ th, td {
 
 th {
     background-color: rgb(235,235,235);
+    font-size: 24px;
   }
 
 button.new-book {
@@ -79,3 +80,5 @@ button.deleteButton {
 .buttonCell {
    text-align: center;
 }
+
+
