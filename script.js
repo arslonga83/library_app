@@ -121,7 +121,7 @@ submitButton.addEventListener('click', (e) => {
     const formBook = new Book();
     formBook.title = document.getElementById("title").value;
     formBook.author = document.getElementById("author").value;
-    formBook.pages = document.getElementById("pages").value;
+    formBook.pages = Number(document.getElementById("pages").value);
     formBook.read = document.getElementById("read").checked;
     if (formBook.read === true) {    //convert user response to boolean
         formBook.read = true;

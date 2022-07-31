@@ -56,27 +56,25 @@ button.new-book, button.form-button {
 }
 
 button.deleteButton:hover {
-    transform: scale(1.2, 1.2)
-}
-
-button.deleteButton:active, button.form-button:active {
-    background-color: rgb(235,235,235);
+    background-color:white;
+    color: black;
 }
 
 button.form-button:hover {
-    transform: scale(1.05, 1.05)
+    background-color: white;
+    color: black;
 }
 
 .cancel:hover, .submit:hover {
-    transform: scale(1.05, 1.05)
+    background-color: white;
+    color: black
 }
 
 button.deleteButton {
     background-color: black;
     color: white;
     height: 30px;
-    width: 30px;
-
+    width: 30px;    
 }
 
 .buttonCell {
@@ -117,5 +115,4 @@ form {
     margin-left: 24px;
     background-color: black;
     color: white;
-
 }
