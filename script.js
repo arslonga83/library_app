@@ -119,10 +119,10 @@ makeTable(myLibrary);
 
 //close and open form for adding new books
 function openForm() {
-    document.getElementById('popupForm').style.display = 'flex';
+document.getElementById('popupForm').style.display = 'flex';
 }
 function closeForm() {
-    document.getElementById('popupForm').style.display = 'none';
+document.getElementById('popupForm').style.display = 'none';
 }
 formButton = document.querySelector('.form-button');
 formButton.addEventListener('click', () => {
@@ -133,6 +133,25 @@ cancelButton.addEventListener('click', () => {
     closeForm();
 })
 
-    
-
-
+//capture form data with submit button
+const submitButton = document.querySelector('.submit');
+const form = document.querySelector('#myForm');
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const formBook = new Book();
+    formBook.title = document.getElementById("title").value;
+    formBook.author = document.getElementById("author").value;
+    formBook.pages = document.getElementById("pages").value;
+    formBook.read = document.getElementById("read").checked;
+    if (formBook.read === true) {    //convert user response to boolean
+        formBook.read = true;
+    }
+    else {
+        formBook.read = false;
+    }
+    myLibrary.push(formBook);  
+    document.querySelector('#tableBody').innerHTML = ""; //clear and remake table
+    document.querySelector('#myForm').reset();
+    closeForm();
+    makeTable(myLibrary);
+})
