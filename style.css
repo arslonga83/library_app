@@ -98,7 +98,15 @@ button.deleteButton {
     line-height: 3rem;
 }
 
-.cancel {
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.cancel, .submit {
     padding: 8px;
     margin-top: 24px;
+    margin-right: 24px;
+    margin-left: 24px;
+
 }

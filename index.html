@@ -9,17 +9,22 @@
 </head>
 <body>
     <h1>My Library Collection</h1>
-    <div id = "popupForm">
-        <h2>New Book</h2>
-        <label for="title">Title</label>
-            <input type="text" id="title" name="title" required>
-        <label for="author">Author</label>
-            <input type="text" id="author" name="author" required>
-        <label for="pages">Pages</label>
-            <input type="text">
-        <label for="read">Read?</label>
-            <input type="checkbox">
-        <button class="cancel">Cancel</button>    
+        <div id = "popupForm">
+        <form action="">
+            <h2>New Book</h2>
+            <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+            <label for="author">Author</label>
+                <input type="text" id="author" name="author" required>
+            <label for="pages">Pages</label>
+                <input type="text" id = "pages" name="pages" required>
+            <label for="read">Read?</label>
+                <input type="checkbox" id = "read" name="read">
+            <div class="buttons">    
+                <button type="submit" class="submit">Submit</button>    
+                <button class="cancel">Cancel</button>  
+            </div>
+        </form>  
     </div>
     <table id="bookTable">
         <thead>
