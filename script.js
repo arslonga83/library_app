@@ -22,24 +22,6 @@ Book.prototype.toggle = function() {
     }
 }
 
-//collect info for a new book and add it to the library
-//function addBookToLibrary() {
-//    const newBook = new Book();
-//    newBook.title = prompt("Title: ");
-//    newBook.author = prompt("Author: ");
-//    newBook.pages = prompt("Pages: ");
-//    newBook.read = prompt("Read? (yes or no)");
-//    if (newBook.read == 'yes') {    //convert user response to boolean
-//        newBook.read = true;
-//    }
- //   else {
- //       newBook.read = false;
- //   }
- //   myLibrary.push(newBook);
- //   document.querySelector('#tableBody').innerHTML = ""; //clear and remake table
- //   makeTable(myLibrary);
-//}
-
 // this function make the table from myLibrary
 function makeTable(myLibrary) {   
     let table = document.querySelector('tbody'); 
@@ -65,6 +47,7 @@ function makeTable(myLibrary) {
         newCell.classList.add('buttonCell');
         let button = document.createElement('button');
         button.dataset.index = i;
+        button.textContent = 'x';
         button.classList.add('deleteButton');
         newCell.appendChild(button);  
     }
@@ -72,12 +55,6 @@ function makeTable(myLibrary) {
     createCheckbox(); //link event listeners
     console.table(myLibrary);
 }
-
-//adds event listener to New Book button
-//const button = document.querySelector('.new-book');
-//button.addEventListener('click', () => {
-//    addBookToLibrary();
-//})
 
 //adds event listener on delete buttons and refreshes table when run
 function createDelete() {
@@ -121,13 +98,16 @@ makeTable(myLibrary);
 function openForm() {
 document.getElementById('popupForm').style.display = 'flex';
 }
+
 function closeForm() {
 document.getElementById('popupForm').style.display = 'none';
 }
+
 formButton = document.querySelector('.form-button');
 formButton.addEventListener('click', () => {
     openForm();
 })
+
 cancelButton = document.querySelector('.cancel');
 cancelButton.addEventListener('click', () => {
     closeForm();

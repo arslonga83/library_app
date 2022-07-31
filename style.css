@@ -59,22 +59,24 @@ button.deleteButton:hover {
     transform: scale(1.2, 1.2)
 }
 
-button.deleteButton:active {
+button.deleteButton:active, button.form-button:active {
     background-color: rgb(235,235,235);
 }
 
-button.new-book:hover {
+button.form-button:hover {
     transform: scale(1.05, 1.05)
 }
 
-button.new-book:active {
-    background-color: rgb(235,235,235);
+.cancel:hover, .submit:hover {
+    transform: scale(1.05, 1.05)
 }
 
 button.deleteButton {
-    padding: 8px;
     background-color: black;
     color: white;
+    height: 30px;
+    width: 30px;
+
 }
 
 .buttonCell {
@@ -98,6 +100,11 @@ button.deleteButton {
     line-height: 3rem;
 }
 
+input {
+    margin-top: -12px;
+    margin-bottom: 16px;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -108,5 +115,7 @@ form {
     margin-top: 24px;
     margin-right: 24px;
     margin-left: 24px;
+    background-color: black;
+    color: white;
 
 }
