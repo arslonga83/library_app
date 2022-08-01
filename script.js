@@ -109,7 +109,8 @@ formButton.addEventListener('click', () => {
 })
 
 cancelButton = document.querySelector('.cancel');
-cancelButton.addEventListener('click', () => {
+cancelButton.addEventListener('click', (e) => {
+    e.preventDefault();
     closeForm();
 })
 
