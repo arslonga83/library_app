@@ -66,7 +66,7 @@ button.form-button:hover {
     color: black;
 }
 
-.cancel:hover, .submit:hover {
+.cancel:hover, .submit:hover, .confirm:hover {
     background-color: white;
     color: black
 }
@@ -95,6 +95,7 @@ button.deleteButton {
     background-color: rgb(235,235,235);
     padding: 48px;
     padding-top: 16px;
+    margin-top: 24px;
     border: 2px solid black;
     width: 500px;
     text-align: center;
@@ -161,4 +162,25 @@ input[type="checkbox"]::before {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+  }
+
+  #confirmPopup {
+    display: none;
+    position: absolute;
+    grid-template-rows: 1fr 1fr;
+    background-color: rgb(235, 235, 235);
+    border: 2px solid black;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 24px;
+    padding-right: 24px;    
+    text-align: center;
+    gap: 16px;
+  }
+
+  .confirm {
+    color: white;
+    background-color: black;
+    padding: 8px;
+    width: 100px;
   }
