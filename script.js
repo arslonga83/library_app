@@ -61,14 +61,8 @@ function createDelete() {
     document.querySelectorAll('.deleteButton').forEach(item => {
         item.addEventListener('click', () => {
             index = item.dataset.index;
-            for (i = 0; i <= index; i++) {
-               if (i == index) { 
-                   myLibrary.splice(i, 1); 
-                   document.querySelector('#tableBody').innerHTML = "";
-                   makeTable(myLibrary);
-               }
-            }
-         })
+            confirmDelete();
+        })
     })
 }
 
@@ -136,3 +130,31 @@ submitButton.addEventListener('click', (e) => {
     closeForm();
     makeTable(myLibrary);
 })
+
+//close and open delete confirmation
+function openConfirm() {
+    document.getElementById('confirmPopup').style.display = 'grid';
+    }
+    
+function closeConfirm() {
+    document.getElementById('confirmPopup').style.display = 'none';
+    }
+
+function confirmDelete() {
+    openConfirm();
+    document.getElementById('no').addEventListener('click', () => {
+        closeConfirm();
+        return;}) 
+}
+
+//this is the listener for the confirm button
+document.getElementById('yes').addEventListener('click', () => {
+    closeConfirm();
+    deleteFunction();
+})
+
+function deleteFunction() {
+            myLibrary.splice(index, 1); 
+            document.querySelector('#tableBody').innerHTML = "";
+            makeTable(myLibrary);    
+}
